@@ -1,0 +1,13 @@
+{
+  "name": "simple-mobx",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/samwangdd/simple-mobx.git",
+  "author": "samwangdd",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.6.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  }
+}
