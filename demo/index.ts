@@ -11,7 +11,7 @@ const fn = () => console.log(store.a);
 Object.defineProperty(store, 'a', {
   get: function() {
     em.on('store.a', fn);
-    return 100;
+    return 100
   },
   set: function() {
     em.emit('store.a');
