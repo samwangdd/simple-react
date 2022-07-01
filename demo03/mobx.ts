@@ -7,9 +7,7 @@ let obId = 1;
 export const autorun = (fn) => {
   // why use warpFn?
   // push the warpFn to props watchList
-  console.log('111', 111)
   const warpFn = () => {
-    console.log('222', 222)
     currentFn = warpFn;
     fn();
     currentFn = null;
@@ -35,7 +33,6 @@ export const observable = (obj) => {
         get: function () {
           // when here don't exist currentFn?
           if (currentFn) {
-            console.log('currentFn', currentFn, 'id', id);
             em.on(id, currentFn);
           }
           // what`s the return? return current props

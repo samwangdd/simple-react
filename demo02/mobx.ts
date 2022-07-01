@@ -17,17 +17,16 @@ export const observable = (obj) => {
   // Because to save current value
   obj[data] = JSON.parse(JSON.stringify(obj));
 
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     if (typeof obj[key] === 'object') {
       observable(obj[key]);
     } else {
       // generate unique channel ID for every key
       const id = String(obId++);
       Object.defineProperty(obj, key, {
-        get: function() {
+        get: function () {
           // when here don't exist currentFn?
           if (currentFn) {
-            console.log('currentFn', currentFn, 'id', id);
             em.on(id, currentFn);
           }
           // what`s the return? return current props
@@ -35,7 +34,7 @@ export const observable = (obj) => {
           // And this[data] is current value, will be overwritten by next time
           return this[data][key];
         },
-        set: function(value) {
+        set: function (value) {
           if (this[data][key] !== value) {
             this[data][key] = value;
             em.emit(id);
